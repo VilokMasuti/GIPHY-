@@ -6,7 +6,7 @@ import { useGifState } from "../context/Gify"; // Changed import statement
 import GifSearch from "./GifSearch";
 
 const Header = () => {
-  const { gf, giphy, setFavorites, setFilter, setGiphy, filter, favorites } = useGifState(); // Using useGifState hook instead
+  const { gf, setFilter,  filter, favorites } = useGifState(); // Using useGifState hook instead
   const [showCategories, setShowCategories] = useState(false);
   const [categories, setCategories] = useState([])
 
@@ -31,7 +31,10 @@ const Header = () => {
       <div className="relative flex gap-4 justify-between items-center mb-2">
         <Link to="/" className="flex gap-2">
           <img src={logo} className="w-8" alt="logo"/>
-          <h1 className="text-5xl font-bold tracking-tight cursor-pointer"> GIPHY</h1>
+          <h1 className="text-5xl font-bold tracking-tight cursor-pointer bg-gradient-to-tr from-slate-950 to-red-600  animate-bounce duration-1000 bg-clip-text text-transparent">
+          GIPHY
+        </h1>
+        
         </Link>
         <div className="font-bold text-md flex gap-4 items-center">
 
@@ -49,7 +52,7 @@ const Header = () => {
             Reactions
           </Link>
           {favorites.length>0 && (
-            <div className="h-9  bg-gray-700 py-2 px-2 cursor-pointer rounded">
+            <div className="h-9 bg-gradient-to-tr from-slate-950  to-red-500 py-2 px-2 cursor-pointer rounded animate-pulse duration-1000">
             <Link to="/favorites">
             Favorites Gify
             </Link>
